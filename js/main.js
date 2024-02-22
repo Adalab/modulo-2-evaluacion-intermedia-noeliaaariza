@@ -24,7 +24,7 @@ function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 const randomNum = getRandomNumber(100);
-console.log("el numero aleatorio es " + randomNum); //borrar al final
+//console.log("el numero aleatorio es " + randomNum);
 
 function handleFunction() {
   runningGame();
@@ -32,16 +32,14 @@ function handleFunction() {
 
 function runningGame() {
   const userNum = parseInt(userNumber.value);
-  if (userNum === randomNum) {
-    clue.innerHTML = "Has ganado campeona!!!";
-  }
+
   if (userNum > 100 || userNum < 1) {
     clue.innerHTML = "El número debe estar entre 1 y 100";
-  }
-  if (userNum > randomNum && userNum < 100) {
+  } else if (userNum === randomNum) {
+    clue.innerHTML = "Has ganado campeona!!!";
+  } else if (userNum > randomNum && userNum < 100) {
     clue.innerHTML = "Demasiado alto";
-  }
-  if (userNum < randomNum && userNum > 1) {
+  } else if (userNum < randomNum && userNum > 1) {
     clue.innerHTML = "Demasiado bajo";
   }
 }
